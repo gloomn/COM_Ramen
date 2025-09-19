@@ -27,6 +27,13 @@ namespace COM_Ramen
 
         // noodle이 떨어질 때 체크할 영역
         private Rectangle targetArea = new Rectangle(668, 556, 570, 285); // x, y, width, height
+        private Rectangle powderTargetArea = new Rectangle(668, 0, 570, 1080);
+
+        private Point startPoint;
+        private bool dragging;
+        private int yPos;
+        private int xPos;
+
 
 
         public MainForm()
@@ -57,6 +64,11 @@ namespace COM_Ramen
             // KeyPreview 활성화 → Form에서 키 입력 먼저 처리
             this.KeyPreview = true;
             this.KeyDown += MainForm_KeyDown;
+
+            // 예: form 초기화나 designer에서
+            powder.MouseDown += powder_MouseDown;
+            powder.MouseMove += powder_MouseMove;
+            powder.MouseUp += powder_MouseUp;
         }
 
         // Start game button
@@ -191,16 +203,30 @@ namespace COM_Ramen
 
                 // ← 여기서 왼쪽 꼭짓점 기준 체크
                 if (targetArea.Contains(noodle.Left, noodle.Top))
+                {
                     noodleInWaterScene.Image = Properties.Resources.noodleInWater; // 영역 안
+                    putPowderScene.Image = Properties.Resources.putPowderYesNoodle;
+                    putPowderScene.Tag = "putPowderYesNoodle";
+                }
                 else
+                {
                     noodleInWaterScene.Image = Properties.Resources.noodleNotInWater; // 영역 밖
-
+                    putPowderScene.Image = Properties.Resources.putPowderNoNoodle;
+                    putPowderScene.Tag = "putPowderNoNoodle";
+                }
                 noodleInWaterPanel_5.BringToFront(); // 다음 패널로 전환
+
+                Timer delayTimer = new Timer();
+                delayTimer.Interval = 5000;
+                delayTimer.Tick += (s, args) =>
+                {
+                    putPowderPanel_6.BringToFront();
+                    delayTimer.Stop();
+                    delayTimer.Dispose();
+                };
+                delayTimer.Start();
             }
         }
-
-
-
 
         // KeyDown event → block space key
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
@@ -216,6 +242,76 @@ namespace COM_Ramen
         {
             noodleTimer.Stop();
             StartNoodleFall();
+        }
+
+        private void powder_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Control c = sender as Control;
+                if (c != null)
+                {
+                    c.Left += e.X - xPos;
+                    c.Top += e.Y - yPos;
+
+                    c.Parent.Invalidate();
+                    c.Parent.Update();
+
+                    // 영역 체크
+                    if (powderTargetArea.IntersectsWith(c.Bounds))
+                    {
+                        // 영역 안 → GIF 재생
+                        if (putPowderScene.Tag?.ToString() == "putPowderNoNoodle")
+                        {
+                            putPowderScene.Image = Properties.Resources.boilingNoNoodle;
+                            ImageAnimator.Animate(putPowderScene.Image, OnFrameChanged);
+                        }
+                        else if (putPowderScene.Tag?.ToString() == "putPowderYesNoodle")
+                        {
+                            putPowderScene.Image = Properties.Resources.boilingYesNoodle;
+                            ImageAnimator.Animate(putPowderScene.Image, OnFrameChanged);
+                        }
+                    }
+                    else
+                    {
+                        // 영역 밖 → GIF 정지
+                        ImageAnimator.StopAnimate(putPowderScene.Image, OnFrameChanged);
+
+                        if (putPowderScene.Tag?.ToString() == "putPowderNoNoodle")
+                            putPowderScene.Image = Properties.Resources.putPowderNoNoodle;
+                        else if (putPowderScene.Tag?.ToString() == "putPowderYesNoodle")
+                            putPowderScene.Image = Properties.Resources.putPowderYesNoodle;
+                    }
+                }
+            }
+        }
+
+        // GIF 프레임 갱신 이벤트
+        private void OnFrameChanged(object sender, EventArgs e)
+        {
+            putPowderScene.Invalidate();
+        }
+
+
+        private void powder_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = true;
+                xPos = e.X;
+                yPos = e.Y;
+                powder.BringToFront();
+                Cursor = Cursors.Hand;
+            }
+        }
+
+        private void powder_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                dragging = false;
+                Cursor = Cursors.Default;
+            }
         }
     }
 

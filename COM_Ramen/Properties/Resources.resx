@@ -148,6 +148,9 @@
   <data name="noodleNotInWater" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\noodleNotInWater.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="powder" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\powder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="properRamen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\properRamen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -156,6 +159,12 @@
   </data>
   <data name="putNoodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\putNoodle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="putPowderNoNoodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\putPowderNoNoodle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="putPowderYesNoodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\putPowderYesNoodle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="setWaterHeight1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\setWaterHeight1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -171,5 +180,11 @@
   </data>
   <data name="setWaterHeight5" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\setWaterHeight5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boilingNoNoodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\boilingNoNoodle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boilingYesNoodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\boilingYesNoodle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

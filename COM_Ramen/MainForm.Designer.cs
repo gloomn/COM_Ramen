@@ -42,6 +42,8 @@
             this.noodle = new System.Windows.Forms.PictureBox();
             this.putNoodleScene = new System.Windows.Forms.PictureBox();
             this.putPowderPanel_6 = new System.Windows.Forms.Panel();
+            this.powder = new System.Windows.Forms.PictureBox();
+            this.putPowderScene = new System.Windows.Forms.PictureBox();
             this.boilingFinalRamenPanel_7 = new System.Windows.Forms.Panel();
             this.finishPanel_8 = new System.Windows.Forms.Panel();
             this.noodleInWaterPanel_5 = new System.Windows.Forms.Panel();
@@ -55,6 +57,9 @@
             this.putNoodlePanel_4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noodle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.putNoodleScene)).BeginInit();
+            this.putPowderPanel_6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.powder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.putPowderScene)).BeginInit();
             this.noodleInWaterPanel_5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.noodleInWaterScene)).BeginInit();
             this.SuspendLayout();
@@ -201,10 +206,35 @@
             // 
             // putPowderPanel_6
             // 
-            this.putPowderPanel_6.Location = new System.Drawing.Point(997, 124);
+            this.putPowderPanel_6.Controls.Add(this.powder);
+            this.putPowderPanel_6.Controls.Add(this.putPowderScene);
+            this.putPowderPanel_6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.putPowderPanel_6.Location = new System.Drawing.Point(0, 0);
             this.putPowderPanel_6.Name = "putPowderPanel_6";
-            this.putPowderPanel_6.Size = new System.Drawing.Size(200, 100);
+            this.putPowderPanel_6.Size = new System.Drawing.Size(1898, 1024);
             this.putPowderPanel_6.TabIndex = 3;
+            // 
+            // powder
+            // 
+            this.powder.BackColor = System.Drawing.Color.Transparent;
+            this.powder.Image = global::COM_Ramen.Properties.Resources.powder;
+            this.powder.Location = new System.Drawing.Point(101, 302);
+            this.powder.Name = "powder";
+            this.powder.Size = new System.Drawing.Size(345, 336);
+            this.powder.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.powder.TabIndex = 1;
+            this.powder.TabStop = false;
+            // 
+            // putPowderScene
+            // 
+            this.putPowderScene.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.putPowderScene.Image = global::COM_Ramen.Properties.Resources.putPowderYesNoodle;
+            this.putPowderScene.Location = new System.Drawing.Point(0, 0);
+            this.putPowderScene.Name = "putPowderScene";
+            this.putPowderScene.Size = new System.Drawing.Size(1898, 1024);
+            this.putPowderScene.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.putPowderScene.TabIndex = 0;
+            this.putPowderScene.TabStop = false;
             // 
             // boilingFinalRamenPanel_7
             // 
@@ -243,6 +273,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.putPowderPanel_6);
             this.Controls.Add(this.noodleInWaterPanel_5);
             this.Controls.Add(this.putNoodlePanel_4);
             this.Controls.Add(this.waterBoilingPanel_3);
@@ -250,7 +281,6 @@
             this.Controls.Add(this.startPanel_1);
             this.Controls.Add(this.finishPanel_8);
             this.Controls.Add(this.boilingFinalRamenPanel_7);
-            this.Controls.Add(this.putPowderPanel_6);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -269,6 +299,9 @@
             this.putNoodlePanel_4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.noodle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.putNoodleScene)).EndInit();
+            this.putPowderPanel_6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.powder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.putPowderScene)).EndInit();
             this.noodleInWaterPanel_5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.noodleInWaterScene)).EndInit();
             this.ResumeLayout(false);
@@ -294,6 +327,8 @@
         private System.Windows.Forms.Button inNoodle;
         private System.Windows.Forms.Panel noodleInWaterPanel_5;
         private System.Windows.Forms.PictureBox noodleInWaterScene;
+        private System.Windows.Forms.PictureBox putPowderScene;
+        private System.Windows.Forms.PictureBox powder;
     }
 }
 

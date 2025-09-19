@@ -82,6 +82,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Assets\boilingNoNoodle.gif" />
+    <Content Include="Assets\boilingYesNoodle.gif" />
     <Content Include="Assets\fianlScene.gif" />
     <Content Include="Assets\fullRamen.gif" />
     <Content Include="Assets\fullWater.gif" />
@@ -90,9 +92,12 @@
     <Content Include="Assets\noodle.png" />
     <Content Include="Assets\noodleInWater.gif" />
     <Content Include="Assets\noodleNotInWater.gif" />
+    <Content Include="Assets\powder.png" />
     <Content Include="Assets\properRamen.gif" />
     <Content Include="Assets\properWater.gif" />
     <Content Include="Assets\putNoodle.gif" />
+    <Content Include="Assets\putPowderNoNoodle.gif" />
+    <Content Include="Assets\putPowderYesNoodle.gif" />
     <Content Include="Assets\setWaterHeight.gif" />
     <Content Include="Assets\setWaterHeight1.png" />
     <Content Include="Assets\setWaterHeight2.png" />

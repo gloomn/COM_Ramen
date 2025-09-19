@@ -63,6 +63,26 @@ namespace COM_Ramen.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap boilingNoNoodle {
+            get {
+                object obj = ResourceManager.GetObject("boilingNoNoodle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap boilingYesNoodle {
+            get {
+                object obj = ResourceManager.GetObject("boilingYesNoodle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap fianlScene {
             get {
                 object obj = ResourceManager.GetObject("fianlScene", resourceCulture);
@@ -143,6 +163,16 @@ namespace COM_Ramen.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap powder {
+            get {
+                object obj = ResourceManager.GetObject("powder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap properRamen {
             get {
                 object obj = ResourceManager.GetObject("properRamen", resourceCulture);
@@ -166,6 +196,26 @@ namespace COM_Ramen.Properties {
         internal static System.Drawing.Bitmap putNoodle {
             get {
                 object obj = ResourceManager.GetObject("putNoodle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap putPowderNoNoodle {
+            get {
+                object obj = ResourceManager.GetObject("putPowderNoNoodle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap putPowderYesNoodle {
+            get {
+                object obj = ResourceManager.GetObject("putPowderYesNoodle", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
