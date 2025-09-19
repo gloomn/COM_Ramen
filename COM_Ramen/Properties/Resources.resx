@@ -130,14 +130,23 @@
   <data name="fullRamen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\fullRamen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fullWater" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\fullWater.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="lowRamen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\lowRamen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lowWater" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\lowWater.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="noodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\noodle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="properRamen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\properRamen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="properWater" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\properWater.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="putNoodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\putNoodle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

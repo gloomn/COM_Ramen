@@ -25,6 +25,7 @@ namespace COM_Ramen
         {
             InitializeComponent();
             startPanel_1.Dock = DockStyle.Fill;
+            setWaterHeightPanel_2.Dock = DockStyle.Fill;
             startPanel_1.BringToFront();
             frameTimer_Init();
 
@@ -79,8 +80,23 @@ namespace COM_Ramen
 
         private void stopWaterButton_Click(object sender, EventArgs e)
         {
+            // 현재 프레임 기준으로 boilingScene에 넣을 이미지 선택
+            Image selectedImage;
+
+            if (currentFrame == 0 || currentFrame == 1)
+                selectedImage = Properties.Resources.lowWater;
+            else if (currentFrame == 2)
+                selectedImage = Properties.Resources.properWater;
+            else // 3, 4
+                selectedImage = Properties.Resources.fullWater;
+
+            boilingScene.Image = selectedImage;
+
+            // 타이머 정지
             frameTimer.Stop();
+            waterBoilingPanel_3.BringToFront();
         }
+
     }
 
 }

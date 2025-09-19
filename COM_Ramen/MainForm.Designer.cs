@@ -30,18 +30,21 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.startPanel_1 = new System.Windows.Forms.Panel();
+            this.startButton = new System.Windows.Forms.Button();
             this.setWaterHeightPanel_2 = new System.Windows.Forms.Panel();
+            this.stopWaterButton = new System.Windows.Forms.Button();
             this.waterBoilingPanel_3 = new System.Windows.Forms.Panel();
             this.putNoodlePanel_4 = new System.Windows.Forms.Panel();
             this.putPowderPanel_5 = new System.Windows.Forms.Panel();
             this.boilingFinalRamenPanel_6 = new System.Windows.Forms.Panel();
             this.finishPanel = new System.Windows.Forms.Panel();
-            this.startButton = new System.Windows.Forms.Button();
-            this.stopWaterButton = new System.Windows.Forms.Button();
+            this.boilingScene = new System.Windows.Forms.PictureBox();
             this.setWaterHeightScene = new System.Windows.Forms.PictureBox();
             this.startScene = new System.Windows.Forms.PictureBox();
             this.startPanel_1.SuspendLayout();
             this.setWaterHeightPanel_2.SuspendLayout();
+            this.waterBoilingPanel_3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.boilingScene)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.setWaterHeightScene)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.startScene)).BeginInit();
             this.SuspendLayout();
@@ -55,21 +58,56 @@
             this.startPanel_1.Size = new System.Drawing.Size(200, 100);
             this.startPanel_1.TabIndex = 0;
             // 
+            // startButton
+            // 
+            this.startButton.AutoSize = true;
+            this.startButton.BackColor = System.Drawing.Color.Ivory;
+            this.startButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
+            this.startButton.FlatAppearance.BorderSize = 3;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.Location = new System.Drawing.Point(740, 894);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(360, 84);
+            this.startButton.TabIndex = 1;
+            this.startButton.Text = "Start Game";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
             // setWaterHeightPanel_2
             // 
             this.setWaterHeightPanel_2.Controls.Add(this.stopWaterButton);
             this.setWaterHeightPanel_2.Controls.Add(this.setWaterHeightScene);
-            this.setWaterHeightPanel_2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.setWaterHeightPanel_2.Location = new System.Drawing.Point(0, 0);
+            this.setWaterHeightPanel_2.Location = new System.Drawing.Point(285, 104);
             this.setWaterHeightPanel_2.Name = "setWaterHeightPanel_2";
-            this.setWaterHeightPanel_2.Size = new System.Drawing.Size(1898, 1024);
+            this.setWaterHeightPanel_2.Size = new System.Drawing.Size(235, 143);
             this.setWaterHeightPanel_2.TabIndex = 1;
+            // 
+            // stopWaterButton
+            // 
+            this.stopWaterButton.AutoSize = true;
+            this.stopWaterButton.BackColor = System.Drawing.Color.Ivory;
+            this.stopWaterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopWaterButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
+            this.stopWaterButton.FlatAppearance.BorderSize = 3;
+            this.stopWaterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stopWaterButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopWaterButton.Location = new System.Drawing.Point(1260, 800);
+            this.stopWaterButton.Name = "stopWaterButton";
+            this.stopWaterButton.Size = new System.Drawing.Size(360, 84);
+            this.stopWaterButton.TabIndex = 2;
+            this.stopWaterButton.Text = "Stop";
+            this.stopWaterButton.UseVisualStyleBackColor = false;
+            this.stopWaterButton.Click += new System.EventHandler(this.stopWaterButton_Click);
             // 
             // waterBoilingPanel_3
             // 
-            this.waterBoilingPanel_3.Location = new System.Drawing.Point(526, 124);
+            this.waterBoilingPanel_3.Controls.Add(this.boilingScene);
+            this.waterBoilingPanel_3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.waterBoilingPanel_3.Location = new System.Drawing.Point(0, 0);
             this.waterBoilingPanel_3.Name = "waterBoilingPanel_3";
-            this.waterBoilingPanel_3.Size = new System.Drawing.Size(200, 100);
+            this.waterBoilingPanel_3.Size = new System.Drawing.Size(1898, 1024);
             this.waterBoilingPanel_3.TabIndex = 2;
             // 
             // putNoodlePanel_4
@@ -100,39 +138,15 @@
             this.finishPanel.Size = new System.Drawing.Size(200, 100);
             this.finishPanel.TabIndex = 3;
             // 
-            // startButton
+            // boilingScene
             // 
-            this.startButton.AutoSize = true;
-            this.startButton.BackColor = System.Drawing.Color.Ivory;
-            this.startButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.startButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
-            this.startButton.FlatAppearance.BorderSize = 3;
-            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.Location = new System.Drawing.Point(740, 894);
-            this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(360, 84);
-            this.startButton.TabIndex = 1;
-            this.startButton.Text = "Start Game";
-            this.startButton.UseVisualStyleBackColor = false;
-            this.startButton.Click += new System.EventHandler(this.startButton_Click);
-            // 
-            // stopWaterButton
-            // 
-            this.stopWaterButton.AutoSize = true;
-            this.stopWaterButton.BackColor = System.Drawing.Color.Ivory;
-            this.stopWaterButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.stopWaterButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
-            this.stopWaterButton.FlatAppearance.BorderSize = 3;
-            this.stopWaterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stopWaterButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopWaterButton.Location = new System.Drawing.Point(1260, 800);
-            this.stopWaterButton.Name = "stopWaterButton";
-            this.stopWaterButton.Size = new System.Drawing.Size(360, 84);
-            this.stopWaterButton.TabIndex = 2;
-            this.stopWaterButton.Text = "Stop";
-            this.stopWaterButton.UseVisualStyleBackColor = false;
-            this.stopWaterButton.Click += new System.EventHandler(this.stopWaterButton_Click);
+            this.boilingScene.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.boilingScene.Location = new System.Drawing.Point(0, 0);
+            this.boilingScene.Name = "boilingScene";
+            this.boilingScene.Size = new System.Drawing.Size(1898, 1024);
+            this.boilingScene.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.boilingScene.TabIndex = 0;
+            this.boilingScene.TabStop = false;
             // 
             // setWaterHeightScene
             // 
@@ -140,7 +154,7 @@
             this.setWaterHeightScene.Image = global::COM_Ramen.Properties.Resources.setWaterHeight1;
             this.setWaterHeightScene.Location = new System.Drawing.Point(0, 0);
             this.setWaterHeightScene.Name = "setWaterHeightScene";
-            this.setWaterHeightScene.Size = new System.Drawing.Size(1898, 1024);
+            this.setWaterHeightScene.Size = new System.Drawing.Size(235, 143);
             this.setWaterHeightScene.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.setWaterHeightScene.TabIndex = 0;
             this.setWaterHeightScene.TabStop = false;
@@ -161,13 +175,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.waterBoilingPanel_3);
             this.Controls.Add(this.setWaterHeightPanel_2);
             this.Controls.Add(this.startPanel_1);
             this.Controls.Add(this.finishPanel);
             this.Controls.Add(this.boilingFinalRamenPanel_6);
             this.Controls.Add(this.putPowderPanel_5);
             this.Controls.Add(this.putNoodlePanel_4);
-            this.Controls.Add(this.waterBoilingPanel_3);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -179,6 +193,8 @@
             this.startPanel_1.PerformLayout();
             this.setWaterHeightPanel_2.ResumeLayout(false);
             this.setWaterHeightPanel_2.PerformLayout();
+            this.waterBoilingPanel_3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.boilingScene)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.setWaterHeightScene)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.startScene)).EndInit();
             this.ResumeLayout(false);
@@ -198,6 +214,7 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.PictureBox setWaterHeightScene;
         private System.Windows.Forms.Button stopWaterButton;
+        private System.Windows.Forms.PictureBox boilingScene;
     }
 }
 

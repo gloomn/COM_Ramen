@@ -84,9 +84,12 @@
   <ItemGroup>
     <Content Include="Assets\fianlScene.gif" />
     <Content Include="Assets\fullRamen.gif" />
+    <Content Include="Assets\fullWater.gif" />
     <Content Include="Assets\lowRamen.gif" />
+    <Content Include="Assets\lowWater.gif" />
     <Content Include="Assets\noodle.png" />
     <Content Include="Assets\properRamen.gif" />
+    <Content Include="Assets\properWater.gif" />
     <Content Include="Assets\putNoodle.gif" />
     <Content Include="Assets\setWaterHeight.gif" />
     <Content Include="Assets\setWaterHeight1.png" />

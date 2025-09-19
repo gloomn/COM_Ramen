@@ -83,9 +83,29 @@ namespace COM_Ramen.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap fullWater {
+            get {
+                object obj = ResourceManager.GetObject("fullWater", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap lowRamen {
             get {
                 object obj = ResourceManager.GetObject("lowRamen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap lowWater {
+            get {
+                object obj = ResourceManager.GetObject("lowWater", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -106,6 +126,16 @@ namespace COM_Ramen.Properties {
         internal static System.Drawing.Bitmap properRamen {
             get {
                 object obj = ResourceManager.GetObject("properRamen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap properWater {
+            get {
+                object obj = ResourceManager.GetObject("properWater", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
