@@ -16,5 +16,10 @@ namespace COM_Ramen
         {
             InitializeComponent();
         }
+
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            setWaterHeightPanel_2.BringToFront();
+        }
     }
 }

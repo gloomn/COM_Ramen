@@ -37,12 +37,14 @@
             this.boilingFinalRamenPanel_6 = new System.Windows.Forms.Panel();
             this.finishPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.startButton = new System.Windows.Forms.Button();
             this.startPanel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // startPanel_1
             // 
+            this.startPanel_1.Controls.Add(this.startButton);
             this.startPanel_1.Controls.Add(this.pictureBox1);
             this.startPanel_1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.startPanel_1.Location = new System.Drawing.Point(0, 0);
@@ -103,6 +105,23 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // startButton
+            // 
+            this.startButton.AutoSize = true;
+            this.startButton.BackColor = System.Drawing.Color.Ivory;
+            this.startButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.startButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
+            this.startButton.FlatAppearance.BorderSize = 3;
+            this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.startButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.Location = new System.Drawing.Point(740, 894);
+            this.startButton.Name = "startButton";
+            this.startButton.Size = new System.Drawing.Size(360, 84);
+            this.startButton.TabIndex = 1;
+            this.startButton.Text = "Start Game";
+            this.startButton.UseVisualStyleBackColor = false;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -123,6 +142,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "COM:Ramen";
             this.startPanel_1.ResumeLayout(false);
+            this.startPanel_1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -138,6 +158,7 @@
         private System.Windows.Forms.Panel boilingFinalRamenPanel_6;
         private System.Windows.Forms.Panel finishPanel;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button startButton;
     }
 }
 
