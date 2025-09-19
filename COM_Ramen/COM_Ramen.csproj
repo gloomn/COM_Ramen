@@ -88,6 +88,8 @@
     <Content Include="Assets\lowRamen.gif" />
     <Content Include="Assets\lowWater.gif" />
     <Content Include="Assets\noodle.png" />
+    <Content Include="Assets\noodleInWater.gif" />
+    <Content Include="Assets\noodleNotInWater.gif" />
     <Content Include="Assets\properRamen.gif" />
     <Content Include="Assets\properWater.gif" />
     <Content Include="Assets\putNoodle.gif" />

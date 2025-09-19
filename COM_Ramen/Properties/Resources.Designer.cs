@@ -123,6 +123,26 @@ namespace COM_Ramen.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static System.Drawing.Bitmap noodleInWater {
+            get {
+                object obj = ResourceManager.GetObject("noodleInWater", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap noodleNotInWater {
+            get {
+                object obj = ResourceManager.GetObject("noodleNotInWater", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static System.Drawing.Bitmap properRamen {
             get {
                 object obj = ResourceManager.GetObject("properRamen", resourceCulture);
