@@ -121,4 +121,40 @@
   <data name="startScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Assets\startScene.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="setWaterHeight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\setWaterHeight.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fianlScene" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\fianlScene.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fullRamen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\fullRamen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="lowRamen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\lowRamen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="noodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\noodle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="properRamen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\properRamen.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="putNoodle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\putNoodle.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setWaterHeight1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\setWaterHeight1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setWaterHeight2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\setWaterHeight2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setWaterHeight3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\setWaterHeight3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setWaterHeight4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\setWaterHeight4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="setWaterHeight5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Assets\setWaterHeight5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

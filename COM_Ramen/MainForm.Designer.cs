@@ -36,27 +36,33 @@
             this.putPowderPanel_5 = new System.Windows.Forms.Panel();
             this.boilingFinalRamenPanel_6 = new System.Windows.Forms.Panel();
             this.finishPanel = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.startButton = new System.Windows.Forms.Button();
+            this.stopWaterButton = new System.Windows.Forms.Button();
+            this.setWaterHeightScene = new System.Windows.Forms.PictureBox();
+            this.startScene = new System.Windows.Forms.PictureBox();
             this.startPanel_1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.setWaterHeightPanel_2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.setWaterHeightScene)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startScene)).BeginInit();
             this.SuspendLayout();
             // 
             // startPanel_1
             // 
             this.startPanel_1.Controls.Add(this.startButton);
-            this.startPanel_1.Controls.Add(this.pictureBox1);
-            this.startPanel_1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.startPanel_1.Location = new System.Drawing.Point(0, 0);
+            this.startPanel_1.Controls.Add(this.startScene);
+            this.startPanel_1.Location = new System.Drawing.Point(57, 124);
             this.startPanel_1.Name = "startPanel_1";
-            this.startPanel_1.Size = new System.Drawing.Size(1898, 1024);
+            this.startPanel_1.Size = new System.Drawing.Size(200, 100);
             this.startPanel_1.TabIndex = 0;
             // 
             // setWaterHeightPanel_2
             // 
-            this.setWaterHeightPanel_2.Location = new System.Drawing.Point(293, 124);
+            this.setWaterHeightPanel_2.Controls.Add(this.stopWaterButton);
+            this.setWaterHeightPanel_2.Controls.Add(this.setWaterHeightScene);
+            this.setWaterHeightPanel_2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.setWaterHeightPanel_2.Location = new System.Drawing.Point(0, 0);
             this.setWaterHeightPanel_2.Name = "setWaterHeightPanel_2";
-            this.setWaterHeightPanel_2.Size = new System.Drawing.Size(200, 100);
+            this.setWaterHeightPanel_2.Size = new System.Drawing.Size(1898, 1024);
             this.setWaterHeightPanel_2.TabIndex = 1;
             // 
             // waterBoilingPanel_3
@@ -94,17 +100,6 @@
             this.finishPanel.Size = new System.Drawing.Size(200, 100);
             this.finishPanel.TabIndex = 3;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::COM_Ramen.Properties.Resources.startScene;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1898, 1024);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // startButton
             // 
             this.startButton.AutoSize = true;
@@ -122,18 +117,57 @@
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
+            // stopWaterButton
+            // 
+            this.stopWaterButton.AutoSize = true;
+            this.stopWaterButton.BackColor = System.Drawing.Color.Ivory;
+            this.stopWaterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.stopWaterButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
+            this.stopWaterButton.FlatAppearance.BorderSize = 3;
+            this.stopWaterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.stopWaterButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopWaterButton.Location = new System.Drawing.Point(1260, 800);
+            this.stopWaterButton.Name = "stopWaterButton";
+            this.stopWaterButton.Size = new System.Drawing.Size(360, 84);
+            this.stopWaterButton.TabIndex = 2;
+            this.stopWaterButton.Text = "Stop";
+            this.stopWaterButton.UseVisualStyleBackColor = false;
+            this.stopWaterButton.Click += new System.EventHandler(this.stopWaterButton_Click);
+            // 
+            // setWaterHeightScene
+            // 
+            this.setWaterHeightScene.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.setWaterHeightScene.Image = global::COM_Ramen.Properties.Resources.setWaterHeight1;
+            this.setWaterHeightScene.Location = new System.Drawing.Point(0, 0);
+            this.setWaterHeightScene.Name = "setWaterHeightScene";
+            this.setWaterHeightScene.Size = new System.Drawing.Size(1898, 1024);
+            this.setWaterHeightScene.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.setWaterHeightScene.TabIndex = 0;
+            this.setWaterHeightScene.TabStop = false;
+            // 
+            // startScene
+            // 
+            this.startScene.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startScene.Image = global::COM_Ramen.Properties.Resources.startScene;
+            this.startScene.Location = new System.Drawing.Point(0, 0);
+            this.startScene.Name = "startScene";
+            this.startScene.Size = new System.Drawing.Size(200, 100);
+            this.startScene.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.startScene.TabIndex = 0;
+            this.startScene.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.setWaterHeightPanel_2);
             this.Controls.Add(this.startPanel_1);
             this.Controls.Add(this.finishPanel);
             this.Controls.Add(this.boilingFinalRamenPanel_6);
             this.Controls.Add(this.putPowderPanel_5);
             this.Controls.Add(this.putNoodlePanel_4);
             this.Controls.Add(this.waterBoilingPanel_3);
-            this.Controls.Add(this.setWaterHeightPanel_2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -143,7 +177,10 @@
             this.Text = "COM:Ramen";
             this.startPanel_1.ResumeLayout(false);
             this.startPanel_1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.setWaterHeightPanel_2.ResumeLayout(false);
+            this.setWaterHeightPanel_2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.setWaterHeightScene)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.startScene)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -157,8 +194,10 @@
         private System.Windows.Forms.Panel putPowderPanel_5;
         private System.Windows.Forms.Panel boilingFinalRamenPanel_6;
         private System.Windows.Forms.Panel finishPanel;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox startScene;
         private System.Windows.Forms.Button startButton;
+        private System.Windows.Forms.PictureBox setWaterHeightScene;
+        private System.Windows.Forms.Button stopWaterButton;
     }
 }
 

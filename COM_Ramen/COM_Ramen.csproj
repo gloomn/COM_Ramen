@@ -89,6 +89,11 @@
     <Content Include="Assets\properRamen.gif" />
     <Content Include="Assets\putNoodle.gif" />
     <Content Include="Assets\setWaterHeight.gif" />
+    <Content Include="Assets\setWaterHeight1.png" />
+    <Content Include="Assets\setWaterHeight2.png" />
+    <Content Include="Assets\setWaterHeight3.png" />
+    <Content Include="Assets\setWaterHeight4.png" />
+    <Content Include="Assets\setWaterHeight5.png" />
     <Content Include="Assets\startScene.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
