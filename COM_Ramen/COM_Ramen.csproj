@@ -92,6 +92,7 @@
     <Content Include="Assets\noodle.png" />
     <Content Include="Assets\noodleInWater.gif" />
     <Content Include="Assets\noodleNotInWater.gif" />
+    <Content Include="Assets\noRamen.gif" />
     <Content Include="Assets\powder.png" />
     <Content Include="Assets\properRamen.gif" />
     <Content Include="Assets\properWater.gif" />

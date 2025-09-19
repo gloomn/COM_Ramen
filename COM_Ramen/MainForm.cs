@@ -1,6 +1,7 @@
 ﻿//Copyright (C) 2025 Lee Ki Joon
 using System;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace COM_Ramen
@@ -34,7 +35,7 @@ namespace COM_Ramen
         private int yPos;
         private int xPos;
 
-
+        Image selectedImage;
 
         public MainForm()
         {
@@ -46,6 +47,9 @@ namespace COM_Ramen
             waterBoilingPanel_3.Dock = DockStyle.Fill;
             putNoodlePanel_4.Dock = DockStyle.Fill;
             noodleInWaterPanel_5.Dock = DockStyle.Fill;
+            putPowderPanel_6.Dock = DockStyle.Fill;
+            boilingFinalRamenPanel_7.Dock = DockStyle.Fill;
+            finishPanel_8.Dock = DockStyle.Fill;
             startPanel_1.BringToFront();
 
             // Timer 초기화
@@ -119,14 +123,22 @@ namespace COM_Ramen
 
         private void ShowBoilingSceneBasedOnFrame()
         {
-            Image selectedImage;
 
             if (currentFrame == 0 || currentFrame == 1)
+            {
                 selectedImage = Properties.Resources.lowWater;
+                selectedImage.Tag = "lowWater";
+            }
             else if (currentFrame == 2)
+            {
                 selectedImage = Properties.Resources.properWater;
-            else // 3,4
+                selectedImage.Tag = "properWater";
+            }
+            else
+            {
                 selectedImage = Properties.Resources.fullWater;
+                selectedImage.Tag = "fullWater";
+            }
 
             boilingScene.Image = selectedImage;
 
@@ -246,6 +258,11 @@ namespace COM_Ramen
 
         private void powder_MouseMove(object sender, MouseEventArgs e)
         {
+            Timer delayTimer = new Timer();
+            delayTimer.Interval = 8000;
+
+            Timer delayTimerFinal = new Timer();
+            delayTimerFinal.Interval = 3000;
             if (dragging)
             {
                 Control c = sender as Control;
@@ -257,19 +274,71 @@ namespace COM_Ramen
                     c.Parent.Invalidate();
                     c.Parent.Update();
 
-                    // 영역 체크
-                    if (powderTargetArea.IntersectsWith(c.Bounds))
+                    // 왼쪽 위 모서리 기준 영역 체크
+                    Point topLeft = new Point(c.Left, c.Top);
+
+                    if (powderTargetArea.Contains(topLeft))
                     {
-                        // 영역 안 → GIF 재생
+                        dragging = false; // 영역 안 → 드래그 종료
+
+                        // GIF 재생
                         if (putPowderScene.Tag?.ToString() == "putPowderNoNoodle")
                         {
                             putPowderScene.Image = Properties.Resources.boilingNoNoodle;
                             ImageAnimator.Animate(putPowderScene.Image, OnFrameChanged);
+                            delayTimer.Tick += (s, args) =>
+                            {
+                                boilingFinalRamenScene.Image = Properties.Resources.noRamen;
+                                boilingFinalRamenPanel_7.BringToFront();
+                                delayTimer.Stop();
+                                delayTimer.Dispose();
+                                delayTimerFinal.Tick += (s2, args2) =>
+                                {
+                                    finalScene.Image = Properties.Resources.fianlScene;
+                                    finishPanel_8.BringToFront();
+                                    delayTimerFinal.Stop();
+                                    delayTimerFinal.Dispose();
+                                };
+                                delayTimerFinal.Start();
+                            };
+                            delayTimer.Start();
+
                         }
                         else if (putPowderScene.Tag?.ToString() == "putPowderYesNoodle")
                         {
                             putPowderScene.Image = Properties.Resources.boilingYesNoodle;
                             ImageAnimator.Animate(putPowderScene.Image, OnFrameChanged);
+                            delayTimer.Tick += (s, args) =>
+                            {
+                                if (selectedImage.Tag?.ToString() == "lowWater")
+                                {
+                                    boilingFinalRamenScene.Image = Properties.Resources.lowRamen;
+                                }
+                                else if (selectedImage.Tag?.ToString() == "properWater")
+                                {
+                                    boilingFinalRamenScene.Image = Properties.Resources.properRamen;
+                                }
+                                else if (selectedImage.Tag?.ToString() == "fullWater")
+                                {
+                                    boilingFinalRamenScene.Image = Properties.Resources.fullRamen;
+                                }
+                                else
+                                {
+                                    boilingFinalRamenScene.Image = Properties.Resources.noRamen;
+                                }
+                                boilingFinalRamenPanel_7.BringToFront();
+                                delayTimer.Stop();
+                                delayTimer.Dispose();
+                                delayTimerFinal.Tick += (s2, args2) =>
+                                {
+                                    finalScene.Image = Properties.Resources.fianlScene;
+                                    finishPanel_8.BringToFront();
+                                    delayTimerFinal.Stop();
+                                    delayTimerFinal.Dispose();
+                                };
+                                delayTimerFinal.Start();
+                            };
+                            delayTimer.Start();
                         }
                     }
                     else
@@ -284,6 +353,20 @@ namespace COM_Ramen
                     }
                 }
             }
+        }
+
+
+        public Image GetLastFrame(PictureBox image)
+        {
+            Image gif = image.Image;
+            FrameDimension frameDimension = new FrameDimension(gif.FrameDimensionsList[0]);
+
+            int frameCount = gif.GetFrameCount(frameDimension);
+
+            gif.SelectActiveFrame(frameDimension, frameCount - 1);
+
+            Bitmap lastFrame = new Bitmap(gif);
+            return lastFrame;
         }
 
         // GIF 프레임 갱신 이벤트
