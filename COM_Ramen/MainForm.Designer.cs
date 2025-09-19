@@ -29,13 +29,92 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            this.startPanel_1 = new System.Windows.Forms.Panel();
+            this.setWaterHeightPanel_2 = new System.Windows.Forms.Panel();
+            this.waterBoilingPanel_3 = new System.Windows.Forms.Panel();
+            this.putNoodlePanel_4 = new System.Windows.Forms.Panel();
+            this.putPowderPanel_5 = new System.Windows.Forms.Panel();
+            this.boilingFinalRamenPanel_6 = new System.Windows.Forms.Panel();
+            this.finishPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.startPanel_1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // startPanel_1
+            // 
+            this.startPanel_1.Controls.Add(this.pictureBox1);
+            this.startPanel_1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.startPanel_1.Location = new System.Drawing.Point(0, 0);
+            this.startPanel_1.Name = "startPanel_1";
+            this.startPanel_1.Size = new System.Drawing.Size(1898, 1024);
+            this.startPanel_1.TabIndex = 0;
+            // 
+            // setWaterHeightPanel_2
+            // 
+            this.setWaterHeightPanel_2.Location = new System.Drawing.Point(293, 124);
+            this.setWaterHeightPanel_2.Name = "setWaterHeightPanel_2";
+            this.setWaterHeightPanel_2.Size = new System.Drawing.Size(200, 100);
+            this.setWaterHeightPanel_2.TabIndex = 1;
+            // 
+            // waterBoilingPanel_3
+            // 
+            this.waterBoilingPanel_3.Location = new System.Drawing.Point(526, 124);
+            this.waterBoilingPanel_3.Name = "waterBoilingPanel_3";
+            this.waterBoilingPanel_3.Size = new System.Drawing.Size(200, 100);
+            this.waterBoilingPanel_3.TabIndex = 2;
+            // 
+            // putNoodlePanel_4
+            // 
+            this.putNoodlePanel_4.Location = new System.Drawing.Point(762, 124);
+            this.putNoodlePanel_4.Name = "putNoodlePanel_4";
+            this.putNoodlePanel_4.Size = new System.Drawing.Size(200, 100);
+            this.putNoodlePanel_4.TabIndex = 3;
+            // 
+            // putPowderPanel_5
+            // 
+            this.putPowderPanel_5.Location = new System.Drawing.Point(997, 124);
+            this.putPowderPanel_5.Name = "putPowderPanel_5";
+            this.putPowderPanel_5.Size = new System.Drawing.Size(200, 100);
+            this.putPowderPanel_5.TabIndex = 3;
+            // 
+            // boilingFinalRamenPanel_6
+            // 
+            this.boilingFinalRamenPanel_6.Location = new System.Drawing.Point(1228, 124);
+            this.boilingFinalRamenPanel_6.Name = "boilingFinalRamenPanel_6";
+            this.boilingFinalRamenPanel_6.Size = new System.Drawing.Size(200, 100);
+            this.boilingFinalRamenPanel_6.TabIndex = 3;
+            // 
+            // finishPanel
+            // 
+            this.finishPanel.Location = new System.Drawing.Point(1468, 124);
+            this.finishPanel.Name = "finishPanel";
+            this.finishPanel.Size = new System.Drawing.Size(200, 100);
+            this.finishPanel.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::COM_Ramen.Properties.Resources.startScene;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1898, 1024);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1898, 1024);
+            this.Controls.Add(this.startPanel_1);
+            this.Controls.Add(this.finishPanel);
+            this.Controls.Add(this.boilingFinalRamenPanel_6);
+            this.Controls.Add(this.putPowderPanel_5);
+            this.Controls.Add(this.putNoodlePanel_4);
+            this.Controls.Add(this.waterBoilingPanel_3);
+            this.Controls.Add(this.setWaterHeightPanel_2);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -43,11 +122,22 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "COM:Ramen";
+            this.startPanel_1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Panel startPanel_1;
+        private System.Windows.Forms.Panel setWaterHeightPanel_2;
+        private System.Windows.Forms.Panel waterBoilingPanel_3;
+        private System.Windows.Forms.Panel putNoodlePanel_4;
+        private System.Windows.Forms.Panel putPowderPanel_5;
+        private System.Windows.Forms.Panel boilingFinalRamenPanel_6;
+        private System.Windows.Forms.Panel finishPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
