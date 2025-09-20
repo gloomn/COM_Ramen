@@ -431,11 +431,11 @@ namespace COM_Ramen
             finalScene.Image = null;
 
             // 5️⃣ 면 위치 초기화
-            noodle.Left = 0;
-            noodle.Top = 500;
+            noodle.Left = 260;
+            noodle.Top = 323;
 
-            powder.Left = 0;
-            powder.Top = 500;
+            powder.Left = 101;
+            powder.Top = 302;
         }
 
     }
