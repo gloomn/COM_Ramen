@@ -28,7 +28,7 @@ namespace COM_Ramen
 
         // noodle이 떨어질 때 체크할 영역
         private Rectangle targetArea = new Rectangle(668, 556, 570, 285); // x, y, width, height
-        private Rectangle powderTargetArea = new Rectangle(668, 0, 570, 1080);
+        private Rectangle powderTargetArea = new Rectangle(668, 0, 570, 500);
 
         private Point startPoint;
         private bool dragging;
