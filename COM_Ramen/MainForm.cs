@@ -416,7 +416,7 @@ namespace COM_Ramen
             repeatCount = 0;
             selectedImage = null;
             dragging = false;
-            mouseIsLocked = true;
+            mouseIsLocked = false;
 
             // 3️⃣ 패널 초기화
             startPanel_1.BringToFront();
