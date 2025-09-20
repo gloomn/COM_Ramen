@@ -27,8 +27,8 @@ namespace COM_Ramen
         private DateTime noodleStartTime;
 
         // noodle이 떨어질 때 체크할 영역
-        private Rectangle targetArea = new Rectangle(668, 556, 570, 285); // x, y, width, height
-        private Rectangle powderTargetArea = new Rectangle(668, 0, 570, 1080);
+        private Rectangle targetArea = new Rectangle(668, 556, 400, 285); // x, y, width, height
+        private Rectangle powderTargetArea = new Rectangle(668, 0, 570, 500);
 
         private Point startPoint;
         private bool dragging;
@@ -416,7 +416,7 @@ namespace COM_Ramen
             repeatCount = 0;
             selectedImage = null;
             dragging = false;
-            mouseIsLocked = true;
+            mouseIsLocked = false;
 
             // 3️⃣ 패널 초기화
             startPanel_1.BringToFront();
@@ -431,11 +431,11 @@ namespace COM_Ramen
             finalScene.Image = null;
 
             // 5️⃣ 면 위치 초기화
-            noodle.Left = 0;
-            noodle.Top = 500;
+            noodle.Left = 260;
+            noodle.Top = 323;
 
-            powder.Left = 0;
-            powder.Top = 500;
+            powder.Left = 101;
+            powder.Top = 302;
         }
 
     }
