@@ -84,7 +84,8 @@
   <ItemGroup>
     <Content Include="Assets\boilingNoNoodle.gif" />
     <Content Include="Assets\boilingYesNoodle.gif" />
-    <Content Include="Assets\fianlScene.gif" />
+    <Content Include="Assets\finalSceneYesRamen.gif" />
+    <Content Include="Assets\finalSceneNoRamen.gif" />
     <Content Include="Assets\fullRamen.gif" />
     <Content Include="Assets\fullWater.gif" />
     <Content Include="Assets\lowRamen.gif" />
@@ -92,6 +93,7 @@
     <Content Include="Assets\noodle.png" />
     <Content Include="Assets\noodleInWater.gif" />
     <Content Include="Assets\noodleNotInWater.gif" />
+    <Content Include="Assets\noodleStraight.png" />
     <Content Include="Assets\noRamen.gif" />
     <Content Include="Assets\powder.png" />
     <Content Include="Assets\properRamen.gif" />

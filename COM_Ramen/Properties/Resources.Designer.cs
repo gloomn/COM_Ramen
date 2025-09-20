@@ -83,9 +83,19 @@ namespace COM_Ramen.Properties {
         /// <summary>
         ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static System.Drawing.Bitmap fianlScene {
+        internal static System.Drawing.Bitmap finalSceneNoRamen {
             get {
-                object obj = ResourceManager.GetObject("fianlScene", resourceCulture);
+                object obj = ResourceManager.GetObject("finalSceneNoRamen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap finalSceneYesRamen {
+            get {
+                object obj = ResourceManager.GetObject("finalSceneYesRamen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -156,6 +166,16 @@ namespace COM_Ramen.Properties {
         internal static System.Drawing.Bitmap noodleNotInWater {
             get {
                 object obj = ResourceManager.GetObject("noodleNotInWater", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Drawing.Bitmap 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static System.Drawing.Bitmap noodleStraight {
+            get {
+                object obj = ResourceManager.GetObject("noodleStraight", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

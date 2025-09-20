@@ -34,6 +34,7 @@ namespace COM_Ramen
         private bool dragging;
         private int yPos;
         private int xPos;
+        private bool mouseIsLocked = false;
 
         Image selectedImage;
 
@@ -73,6 +74,9 @@ namespace COM_Ramen
             powder.MouseDown += powder_MouseDown;
             powder.MouseMove += powder_MouseMove;
             powder.MouseUp += powder_MouseUp;
+
+            powder.Parent = putPowderScene;
+            noodle.Parent = putNoodleScene;
         }
 
         // Start game button
@@ -258,12 +262,9 @@ namespace COM_Ramen
 
         private void powder_MouseMove(object sender, MouseEventArgs e)
         {
-            Timer delayTimer = new Timer();
-            delayTimer.Interval = 8000;
-
             Timer delayTimerFinal = new Timer();
-            delayTimerFinal.Interval = 3000;
-            if (dragging)
+            delayTimerFinal.Interval = 5000;
+            if (dragging && !mouseIsLocked)
             {
                 Control c = sender as Control;
                 if (c != null)
@@ -274,16 +275,20 @@ namespace COM_Ramen
                     c.Parent.Invalidate();
                     c.Parent.Update();
 
-                    // 왼쪽 위 모서리 기준 영역 체크
+
+                    // 료이키 텐카이 영역 전개가 아닌 영역 확인
                     Point topLeft = new Point(c.Left, c.Top);
 
                     if (powderTargetArea.Contains(topLeft))
                     {
                         dragging = false; // 영역 안 → 드래그 종료
+                        mouseIsLocked = true;
 
                         // GIF 재생
                         if (putPowderScene.Tag?.ToString() == "putPowderNoNoodle")
                         {
+                            Timer delayTimer = new Timer();
+                            delayTimer.Interval = 10000;
                             putPowderScene.Image = Properties.Resources.boilingNoNoodle;
                             ImageAnimator.Animate(putPowderScene.Image, OnFrameChanged);
                             delayTimer.Tick += (s, args) =>
@@ -294,7 +299,7 @@ namespace COM_Ramen
                                 delayTimer.Dispose();
                                 delayTimerFinal.Tick += (s2, args2) =>
                                 {
-                                    finalScene.Image = Properties.Resources.fianlScene;
+                                    finalScene.Image = Properties.Resources.finalSceneNoRamen;
                                     finishPanel_8.BringToFront();
                                     delayTimerFinal.Stop();
                                     delayTimerFinal.Dispose();
@@ -308,6 +313,8 @@ namespace COM_Ramen
                         {
                             putPowderScene.Image = Properties.Resources.boilingYesNoodle;
                             ImageAnimator.Animate(putPowderScene.Image, OnFrameChanged);
+                            Timer delayTimer = new Timer();
+                            delayTimer.Interval = 8000;
                             delayTimer.Tick += (s, args) =>
                             {
                                 if (selectedImage.Tag?.ToString() == "lowWater")
@@ -331,7 +338,7 @@ namespace COM_Ramen
                                 delayTimer.Dispose();
                                 delayTimerFinal.Tick += (s2, args2) =>
                                 {
-                                    finalScene.Image = Properties.Resources.fianlScene;
+                                    finalScene.Image = Properties.Resources.finalSceneYesRamen;
                                     finishPanel_8.BringToFront();
                                     delayTimerFinal.Stop();
                                     delayTimerFinal.Dispose();
@@ -378,7 +385,7 @@ namespace COM_Ramen
 
         private void powder_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left && !mouseIsLocked)
             {
                 dragging = true;
                 xPos = e.X;
@@ -396,18 +403,65 @@ namespace COM_Ramen
                 Cursor = Cursors.Default;
             }
         }
+
+        private void resetButton_Click(object sender, EventArgs e)
+        {
+            // 1️⃣ 모든 타이머 정지
+            frameTimer?.Stop();
+            noodleTimer?.Stop();
+            noodleFallTimer?.Stop();
+
+            // 2️⃣ 상태 변수 초기화
+            currentFrame = 0;
+            repeatCount = 0;
+            selectedImage = null;
+            dragging = false;
+            mouseIsLocked = true;
+
+            // 3️⃣ 패널 초기화
+            startPanel_1.BringToFront();
+
+            // 4️⃣ 이미지 초기화
+            setWaterHeightScene.Image = waterImages[0];
+            boilingScene.Image = null;
+            noodleInWaterScene.Image = null;
+            putPowderScene.Image = Properties.Resources.putPowderNoNoodle; // 기본 이미지로
+            putPowderScene.Tag = "putPowderNoNoodle";
+            boilingFinalRamenScene.Image = null;
+            finalScene.Image = null;
+
+            // 5️⃣ 면 위치 초기화
+            noodle.Left = 0;
+            noodle.Top = 500;
+
+            powder.Left = 0;
+            powder.Top = 500;
+        }
+
     }
 
-    public class DoubleBufferedPanel : Panel
+    public class TransparentImagePanel : Panel
+{
+    public Image ImageToDraw { get; set; }
+
+    public TransparentImagePanel()
     {
-        public DoubleBufferedPanel()
+        this.SetStyle(ControlStyles.SupportsTransparentBackColor |
+                      ControlStyles.OptimizedDoubleBuffer |
+                      ControlStyles.AllPaintingInWmPaint, true);
+        this.BackColor = Color.Transparent;
+    }
+
+    protected override void OnPaint(PaintEventArgs e)
+    {
+        base.OnPaint(e);
+
+        if (ImageToDraw != null)
         {
-            // 더블 버퍼링 활성화
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
-                          ControlStyles.UserPaint |
-                          ControlStyles.AllPaintingInWmPaint, true);
-            this.UpdateStyles();
+            // 그림을 그대로 그리기 (PNG 투명 영역 유지)
+            e.Graphics.DrawImage(ImageToDraw, new Point(0, 0));
         }
     }
+}
+
 }
