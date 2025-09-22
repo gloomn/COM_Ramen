@@ -39,6 +39,7 @@ namespace COM_Ramen
         private int xPos;
         private bool mouseIsLocked = false;
 
+        // Boiling water selected image definition
         Image selectedImage;
 
         public MainForm()
@@ -296,9 +297,9 @@ namespace COM_Ramen
                         // GIF 재생
                         if (putPowderScene.Tag?.ToString() == "putPowderNoNoodle")
                         {
-                            Timer delayTimer = new Timer();
-                            delayTimer.Interval = 10000;
                             putPowderScene.Image = Properties.Resources.boilingNoNoodle;
+                            Timer delayTimer = new Timer();
+                            delayTimer.Interval = 13000;
                             ImageAnimator.Animate(putPowderScene.Image, OnFrameChanged);
                             delayTimer.Tick += (s, args) =>
                             {
