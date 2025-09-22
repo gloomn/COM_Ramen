@@ -8,6 +8,7 @@ namespace COM_Ramen
 {
     public partial class MainForm : Form
     {
+        // Water frame definition
         private Timer frameTimer;
         private Image[] waterImages;
 
@@ -26,11 +27,13 @@ namespace COM_Ramen
         private Timer noodleFallTimer;
         private DateTime noodleStartTime;
 
-        // noodle이 떨어질 때 체크할 영역
+        // Noodle fall boundary
         private Rectangle targetArea = new Rectangle(668, 556, 400, 285); // x, y, width, height
+
+        // Powder fall boundary
         private Rectangle powderTargetArea = new Rectangle(668, 0, 570, 500);
 
-        private Point startPoint;
+        // Powder drag definition
         private bool dragging;
         private int yPos;
         private int xPos;
@@ -42,7 +45,7 @@ namespace COM_Ramen
         {
             InitializeComponent();
 
-            // 패널 초기화
+            // Panels reset
             startPanel_1.Dock = DockStyle.Fill;
             setWaterHeightPanel_2.Dock = DockStyle.Fill;
             waterBoilingPanel_3.Dock = DockStyle.Fill;
@@ -53,10 +56,10 @@ namespace COM_Ramen
             finishPanel_8.Dock = DockStyle.Fill;
             startPanel_1.BringToFront();
 
-            // Timer 초기화
+            // Timer reset
             frameTimer_Init();
 
-            // Resource에서 PNG 불러오기
+            // Call water height images from resources
             waterImages = new Image[]
             {
                 Properties.Resources.setWaterHeight1,
@@ -66,15 +69,16 @@ namespace COM_Ramen
                 Properties.Resources.setWaterHeight5
             };
 
-            // KeyPreview 활성화 → Form에서 키 입력 먼저 처리
+            // Activate KeyPreview
             this.KeyPreview = true;
             this.KeyDown += MainForm_KeyDown;
 
-            // 예: form 초기화나 designer에서
+            // Powder drag event handler regist
             powder.MouseDown += powder_MouseDown;
             powder.MouseMove += powder_MouseMove;
             powder.MouseUp += powder_MouseUp;
 
+            // For transparent background(noodle, powder)
             powder.Parent = putPowderScene;
             noodle.Parent = putNoodleScene;
         }
@@ -102,7 +106,7 @@ namespace COM_Ramen
 
                 if (repeatCount >= maxRepeats)
                 {
-                    // 마지막 프레임 유지
+                    // Maintain last frame
                     currentFrame = totalFrames - 1;
                     setWaterHeightScene.Image = waterImages[currentFrame];
                     frameTimer.Stop();
@@ -125,19 +129,22 @@ namespace COM_Ramen
             ShowBoilingSceneBasedOnFrame();
         }
 
+        // Boiling water scene -> based on frame(GIF X)
         private void ShowBoilingSceneBasedOnFrame()
         {
-
+            // Current frame 0, 1 : low water
             if (currentFrame == 0 || currentFrame == 1)
             {
                 selectedImage = Properties.Resources.lowWater;
                 selectedImage.Tag = "lowWater";
             }
+            // Current frame 2 : proper water
             else if (currentFrame == 2)
             {
                 selectedImage = Properties.Resources.properWater;
                 selectedImage.Tag = "properWater";
             }
+            // Current frame 4, 5 : full water
             else
             {
                 selectedImage = Properties.Resources.fullWater;
@@ -150,7 +157,7 @@ namespace COM_Ramen
             frameTimer.Stop();
             waterBoilingPanel_3.BringToFront();
 
-            // 5초 뒤 putNoodlePanel_4와 면 애니메이션 시작
+            // After 5 seconds, bring putNoodlePanel_4 to front and StartNoodleAnimation()
             Timer delayTimer = new Timer();
             delayTimer.Interval = 5000;
             delayTimer.Tick += (s, args) =>
@@ -175,27 +182,27 @@ namespace COM_Ramen
 
             noodle.Left = 0;
             noodleDirection = 1;
-            noodleStartTime = DateTime.Now; // 시작 시간 기록
+            noodleStartTime = DateTime.Now; // Noodle moving start time
             noodleTimer.Start();
         }
 
-        // 1️⃣ Noodle 좌우 이동 Timer
+        // Noodle movement timer
         private void NoodleTimer_Tick(object sender, EventArgs e)
         {
-            // 좌우 이동
+            // Move left and right
             noodle.Left += noodleSpeed * noodleDirection;
             if (noodle.Left <= 0 || noodle.Right >= putNoodlePanel_4.Width)
                 noodleDirection *= -1;
 
-            // 10초 경과 시
+            // After 10 seconds
             if ((DateTime.Now - noodleStartTime).TotalSeconds >= 10)
             {
-                noodleTimer.Stop();       // 좌우 이동 멈춤
-                StartNoodleFall();        // 아래로 떨어뜨리는 Timer 시작
+                noodleTimer.Stop();       // Left right movement stop
+                StartNoodleFall();        // Noodle falling timer start
             }
         }
 
-        // 2️⃣ 아래로 떨어뜨리는 Timer 시작
+        // Noodle falling timer start
         private void StartNoodleFall()
         {
             if (noodleFallTimer == null)
@@ -208,29 +215,29 @@ namespace COM_Ramen
             noodleFallTimer.Start();
         }
 
-        // 3️⃣ 아래로 떨어지면서 영역 체크
+        // When noodle falls, boundary check
         private void NoodleFallTimer_Tick(object sender, EventArgs e)
         {
-            noodle.Top += 10; // 떨어지는 속도
+            noodle.Top += 10; // Noodle falling speed
 
             if (noodle.Bottom >= putNoodlePanel_4.Height - 175)
             {
                 noodleFallTimer.Stop();
 
-                // ← 여기서 왼쪽 꼭짓점 기준 체크
+                // Noodle left top corner boundary
                 if (targetArea.Contains(noodle.Left, noodle.Top))
                 {
-                    noodleInWaterScene.Image = Properties.Resources.noodleInWater; // 영역 안
+                    noodleInWaterScene.Image = Properties.Resources.noodleInWater; // Target in
                     putPowderScene.Image = Properties.Resources.putPowderYesNoodle;
                     putPowderScene.Tag = "putPowderYesNoodle";
                 }
                 else
                 {
-                    noodleInWaterScene.Image = Properties.Resources.noodleNotInWater; // 영역 밖
+                    noodleInWaterScene.Image = Properties.Resources.noodleNotInWater; // Target out
                     putPowderScene.Image = Properties.Resources.putPowderNoNoodle;
                     putPowderScene.Tag = "putPowderNoNoodle";
                 }
-                noodleInWaterPanel_5.BringToFront(); // 다음 패널로 전환
+                noodleInWaterPanel_5.BringToFront(); // Convert to next panel
 
                 Timer delayTimer = new Timer();
                 delayTimer.Interval = 5000;
@@ -254,12 +261,14 @@ namespace COM_Ramen
             }
         }
 
+        // When pressed "In" button -> Start noodle falling
         private void inNoodle_Click(object sender, EventArgs e)
         {
             noodleTimer.Stop();
             StartNoodleFall();
         }
 
+        // When powder mouse move event
         private void powder_MouseMove(object sender, MouseEventArgs e)
         {
             Timer delayTimerFinal = new Timer();
@@ -276,12 +285,12 @@ namespace COM_Ramen
                     c.Parent.Update();
 
 
-                    // 료이키 텐카이 영역 전개가 아닌 영역 확인
+                    // Check powder boundary
                     Point topLeft = new Point(c.Left, c.Top);
 
                     if (powderTargetArea.Contains(topLeft))
                     {
-                        dragging = false; // 영역 안 → 드래그 종료
+                        dragging = false; // Target in -> drag blocked
                         mouseIsLocked = true;
 
                         // GIF 재생
@@ -350,7 +359,7 @@ namespace COM_Ramen
                     }
                     else
                     {
-                        // 영역 밖 → GIF 정지
+                        // Target out -> GIF animation stops
                         ImageAnimator.StopAnimate(putPowderScene.Image, OnFrameChanged);
 
                         if (putPowderScene.Tag?.ToString() == "putPowderNoNoodle")
@@ -362,27 +371,13 @@ namespace COM_Ramen
             }
         }
 
-
-        public Image GetLastFrame(PictureBox image)
-        {
-            Image gif = image.Image;
-            FrameDimension frameDimension = new FrameDimension(gif.FrameDimensionsList[0]);
-
-            int frameCount = gif.GetFrameCount(frameDimension);
-
-            gif.SelectActiveFrame(frameDimension, frameCount - 1);
-
-            Bitmap lastFrame = new Bitmap(gif);
-            return lastFrame;
-        }
-
-        // GIF 프레임 갱신 이벤트
+        // GIF frame renewal event
         private void OnFrameChanged(object sender, EventArgs e)
         {
             putPowderScene.Invalidate();
         }
 
-
+        //When powder mouse down event
         private void powder_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && !mouseIsLocked)
@@ -404,64 +399,41 @@ namespace COM_Ramen
             }
         }
 
+        // When reset button pressed
         private void resetButton_Click(object sender, EventArgs e)
         {
-            // 1️⃣ 모든 타이머 정지
+            // Stop all timers
             frameTimer?.Stop();
             noodleTimer?.Stop();
             noodleFallTimer?.Stop();
 
-            // 2️⃣ 상태 변수 초기화
+            // Reset startus variable
             currentFrame = 0;
             repeatCount = 0;
             selectedImage = null;
             dragging = false;
             mouseIsLocked = false;
 
-            // 3️⃣ 패널 초기화
+            // Reset panel
             startPanel_1.BringToFront();
 
-            // 4️⃣ 이미지 초기화
+            // Reset images
             setWaterHeightScene.Image = waterImages[0];
             boilingScene.Image = null;
             noodleInWaterScene.Image = null;
-            putPowderScene.Image = Properties.Resources.putPowderNoNoodle; // 기본 이미지로
+            putPowderScene.Image = Properties.Resources.putPowderNoNoodle; // Default image
             putPowderScene.Tag = "putPowderNoNoodle";
             boilingFinalRamenScene.Image = null;
             finalScene.Image = null;
 
-            // 5️⃣ 면 위치 초기화
+            // Reset noodle location
             noodle.Left = 260;
             noodle.Top = 323;
 
+            // Reset powder location
             powder.Left = 101;
             powder.Top = 302;
         }
 
     }
-
-    public class TransparentImagePanel : Panel
-{
-    public Image ImageToDraw { get; set; }
-
-    public TransparentImagePanel()
-    {
-        this.SetStyle(ControlStyles.SupportsTransparentBackColor |
-                      ControlStyles.OptimizedDoubleBuffer |
-                      ControlStyles.AllPaintingInWmPaint, true);
-        this.BackColor = Color.Transparent;
-    }
-
-    protected override void OnPaint(PaintEventArgs e)
-    {
-        base.OnPaint(e);
-
-        if (ImageToDraw != null)
-        {
-            // 그림을 그대로 그리기 (PNG 투명 영역 유지)
-            e.Graphics.DrawImage(ImageToDraw, new Point(0, 0));
-        }
-    }
-}
-
 }

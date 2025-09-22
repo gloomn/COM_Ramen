@@ -47,10 +47,10 @@
             this.boilingFinalRamenPanel_7 = new System.Windows.Forms.Panel();
             this.boilingFinalRamenScene = new System.Windows.Forms.PictureBox();
             this.finishPanel_8 = new System.Windows.Forms.Panel();
+            this.resetButton = new System.Windows.Forms.Button();
             this.finalScene = new System.Windows.Forms.PictureBox();
             this.noodleInWaterPanel_5 = new System.Windows.Forms.Panel();
             this.noodleInWaterScene = new System.Windows.Forms.PictureBox();
-            this.resetButton = new System.Windows.Forms.Button();
             this.startPanel_1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.startScene)).BeginInit();
             this.setWaterHeightPanel_2.SuspendLayout();
@@ -269,6 +269,22 @@
             this.finishPanel_8.Size = new System.Drawing.Size(200, 100);
             this.finishPanel_8.TabIndex = 3;
             // 
+            // resetButton
+            // 
+            this.resetButton.BackColor = System.Drawing.Color.Ivory;
+            this.resetButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.resetButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
+            this.resetButton.FlatAppearance.BorderSize = 3;
+            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetButton.Location = new System.Drawing.Point(1445, 841);
+            this.resetButton.Name = "resetButton";
+            this.resetButton.Size = new System.Drawing.Size(234, 80);
+            this.resetButton.TabIndex = 1;
+            this.resetButton.Text = "Reset";
+            this.resetButton.UseVisualStyleBackColor = false;
+            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
+            // 
             // finalScene
             // 
             this.finalScene.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -298,22 +314,6 @@
             this.noodleInWaterScene.TabIndex = 0;
             this.noodleInWaterScene.TabStop = false;
             // 
-            // resetButton
-            // 
-            this.resetButton.BackColor = System.Drawing.Color.Ivory;
-            this.resetButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.resetButton.FlatAppearance.BorderColor = System.Drawing.Color.Pink;
-            this.resetButton.FlatAppearance.BorderSize = 3;
-            this.resetButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetButton.Font = new System.Drawing.Font("Cooper Black", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetButton.Location = new System.Drawing.Point(1445, 841);
-            this.resetButton.Name = "resetButton";
-            this.resetButton.Size = new System.Drawing.Size(234, 80);
-            this.resetButton.TabIndex = 1;
-            this.resetButton.Text = "Reset";
-            this.resetButton.UseVisualStyleBackColor = false;
-            this.resetButton.Click += new System.EventHandler(this.resetButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 18F);
@@ -333,7 +333,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "COM:Ramen";
+            this.Text = "COM:Ramen (Version: 1.0.0)";
             this.startPanel_1.ResumeLayout(false);
             this.startPanel_1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.startScene)).EndInit();
